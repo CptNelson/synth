@@ -56,11 +56,29 @@ body {
 
 }
 
-main {
-  background: white;
-  margin: 20px 0;
-  padding: 10px;
+h1 {
+  color: #f06d06;
+  text-shadow: black;
+  font-size: 20px;
+  font-weight: 600;
 }
+
+main {
+
+  background: white;
+  margin: 10px 15% 1px 15%;
+  padding: 1px 10px 0px 10px;
+  border-radius: 10px;
+}
+.frames {
+
+
+  background: #f06d06;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 10px;
+}
+
 
 main div {
   color: black;
@@ -73,8 +91,11 @@ main div {
   display: flex;
   justify-content: center;
 }
+
 p {
   padding: 5px 0 5px 0;
   margin: 5px 0 5px 0;
+  color: #f06d06;
+  font-weight: 600;
 }
 /* the keys */==============================
