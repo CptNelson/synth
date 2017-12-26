@@ -154,8 +154,8 @@ dialRelease.on('change',function(v) {
   console.log(v);
   synth.envelope.release = dialRelease.value;
 })
-
-//listen to keydown for notes
+/*
+//listen to keydown for selected notes (sample-like mode)
 window.addEventListener("keydown", function(event) {
 
   if (event.keyCode == "65") {
@@ -191,7 +191,7 @@ window.addEventListener("keydown", function(event) {
   if (event.keyCode == "222") {
     synth.triggerAttackRelease("A4", noteValue)
   }
-})
+})*/
 
 //========TRANSPORT===========================
 var transport = Tone.Transport;
@@ -283,6 +283,14 @@ keyboard.keyDown = function (note, frequency) {
   if (selectB.active == 7) {
     noteNames[7] = note;}
   };
+//play the keyboard with mouse
+keyboard.keyDown = function (note) {
+    synth.triggerAttack(note);
+  };
+keyboard.keyUp = function () {
+    synth.triggerRelease();
+};
+
 //listen for note off
 var noneButton = new Nexus.Button('#none',{
   'size': [30,30],
