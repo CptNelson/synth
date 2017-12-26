@@ -201,45 +201,95 @@ function pattern() {
 
 //==================Sequencer====================
 var matrix = new Nexus.Matrix(6,8);
-var noteNames = ["A4","A4","A4","A4","A4","A4","A4","A4","A4"];
-/*var n1;
-var n2;
-var n3;
-var n4;
-var n5;
-var n6;
-var n7;
-var n8;
-*/
+var noteNames = ["A2","A2","A2","A2","A2","A2","A2","A2","A2"];
+
+var select1 = new Nexus.Select('#select1',{
+  'size': [70,30],
+  'options': ['A2','B2','D3','E3','G3','A3']
+})
+var select2 = new Nexus.Select('#select2',{
+  'size': [70,30],
+  'options': ['A2','B3','D3','E3','G3','A3']
+})
+var select3 = new Nexus.Select('#select3',{
+  'size': [70,30],
+  'options': ['A2','B3','D3','E3','G3','A3']
+})
+var select4 = new Nexus.Select('#select4',{
+  'size': [70,30],
+  'options': ['A2','B3','D3','E3','G3','A3']
+})
+var select5 = new Nexus.Select('#select5',{
+  'size': [70,30],
+  'options': ['A2','B3','D3','E3','G3','A3']
+})
+var select6 = new Nexus.Select('#select6',{
+  'size': [70,30],
+  'options': ['A2','B3','D3','E3','G3','A3']
+})
+var select7 = new Nexus.Select('#select7',{
+  'size': [70,30],
+  'options': ['A2','B3','D3','E3','G3','A3']
+})
+var select8 = new Nexus.Select('#select8',{
+  'size': [70,30],
+  'options': ['A2','B3','D3','E3','G3','A3']
+})
+
+select1.on('change',function(v) {
+  noteNames[0] = select1.value;
+})
+select2.on('change',function(v) {
+  noteNames[1] = select2.value;
+})
+select3.on('change',function(v) {
+  noteNames[2] = select3.value;
+})
+select4.on('change',function(v) {
+  noteNames[3] = select4.value;
+})
+select5.on('change',function(v) {
+  noteNames[4] = select5.value;
+})
+select6.on('change',function(v) {
+  noteNames[5] = select6.value;
+})
+select7.on('change',function(v) {
+  noteNames[6] = select7.value;
+})
+select8.on('change',function(v) {
+  noteNames[7] = select8.value;
+})
+
 var loop1 = new Tone.Loop(function(time){
 	console.log(time);
-  synth.triggerAttackRelease("A2", noteValue)
-}, "1n").start("0:0:1");
+  synth.triggerAttackRelease(noteNames[0], noteValue)
+}, "2n").start("0:0:1");
 var loop2 = new Tone.Loop(function(time){
 	console.log(time);
-  synth.triggerAttackRelease("B2", noteValue)
-}, "1n").start("0:0:2");
+  synth.triggerAttackRelease(noteNames[1], noteValue)
+}, "2n").start("0:0:2");
 var loop3 = new Tone.Loop(function(time){
 	console.log(time);
-  synth.triggerAttackRelease("D2", noteValue)
-}, "1n").start("0:0:3");
+  synth.triggerAttackRelease(noteNames[2], noteValue)
+}, "2n").start("0:0:3");
 var loop4 = new Tone.Loop(function(time){
 	console.log(time);
-  synth.triggerAttackRelease("E2", noteValue)
-}, "1n").start("0:0:4");
+  synth.triggerAttackRelease(noteNames[3], noteValue)
+}, "2n").start("0:0:4");
 var loop5 = new Tone.Loop(function(time){
 	console.log(time);
-  synth.triggerAttackRelease("A2", noteValue)
-}, "1n").start("0:1:1");
+  synth.triggerAttackRelease(noteNames[4], noteValue)
+}, "2n").start("0:1:1");
 var loop6 = new Tone.Loop(function(time){
 	console.log(time);
-  synth.triggerAttackRelease("B2", noteValue)
-}, "1n").start("0:1:2");
+  synth.triggerAttackRelease(noteNames[5], noteValue)
+}, "2n").start("0:1:2");
 var loop7 = new Tone.Loop(function(time){
 	console.log(time);
-  synth.triggerAttackRelease("D2", noteValue)
-}, "1n").start("0:1:3");
+  synth.triggerAttackRelease(noteNames[6], noteValue)
+}, "2n").start("0:1:3");
 var loop8 = new Tone.Loop(function(time){
 	console.log(time);
-  synth.triggerAttackRelease("E2", noteValue)
-}, "1n").start("0:1:4");
+  synth.triggerAttackRelease(noteNames[7], noteValue)
+}, "2n").start("0:1:4");
