@@ -266,6 +266,8 @@ var keyboard = new QwertyHancock({
 //listen for keyboard input
 keyboard.keyDown = function (note, frequency) {
   console.log(note);
+  synth.triggerAttack(note);
+
   if (selectB.active == 0) {
     noteNames[0] = note;}
   if (selectB.active == 1) {
@@ -284,13 +286,8 @@ keyboard.keyDown = function (note, frequency) {
     noteNames[7] = note;}
   };
 //play the keyboard with mouse
-keyboard.keyDown = function (note) {
-    synth.triggerAttack(note);
-  };
 keyboard.keyUp = function () {
-    synth.triggerRelease();
-};
-
+  synth.triggerRelease()} ;
 //listen for note off
 var noneButton = new Nexus.Button('#none',{
   'size': [30,30],
