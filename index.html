@@ -4,9 +4,17 @@
   <title>Super Synth 3000</title>
   <link rel="stylesheet" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="zepto.js" ></script>
   <script type="text/javascript" src="NexusUI.js"></script>
+<script type="text/javascript" src="MIDI.js" ></script>
   <script type="text/javascript" src="Tone.js" ></script>
   <script type="text/javascript" src="Tone9.js" ></script>
+
+
 
   <meta name="viewport" content="width=200, initial-scale=1">
 
@@ -16,57 +24,66 @@
   <main class="frames">
   <main class="flex-center title">
     <div id="title">
-      <h1>SUPER SYNTH 3000</h1>
+      <h1>*SUPER* *SYNTH 3000*</h1>
     </div>
   </main>
     <main class="flex-center">
     <div>
-      <div id="wave"></div>
-      <p>waveform</p>
+      <div id="wave" class="stuff"></div>
+      <p id="wavetext">waveform: square/sine/triangle</p>
     </div>
-    <div id="play"></div>
   </main>
 
   <main class="flex-center">
         <p>attack</p>
-    <div id="dattack"></div>
+    <div id="dattack" class="stuff"></div>
         <p>decay</p>
-    <div id="ddecay"></div>
+    <div id="ddecay" class="stuff"></div>
   <p>sustain</p>
-    <div id="dsustain"></div>
-    <p>release</p>
-    <div id="drelease"></div>
+    <div id="dsustain" class="stuff"></div>
+    <p >release</p>
+    <div id="drelease" class="stuff"></div>
 
   </main>
 
   <main class="flex-center">
     <p>filter frequency<p>
-    <div id="filterfreq"></div>
+    <div id="filterfreq" class="stuff"></div>
+    <p>filter Q<p>
+    <div id="filterq" class="stuff"></div>
+    <p>filter type(lp/bp/hp)<p>
+    <div id="filtertype" class="stuff"></div>
   </main>
 
   <main class="flex-center">
     <p>distortion</p>
-    <div id="dist"></div>
+    <div id="dist" class="stuff"></div>
       <p>tremolo</p>
-    <div id="tremolo"></div>
+    <div id="tremolo" class="stuff"></div>
       <p>delay</p>
-    <div id="pingpong"></div>
+    <div id="pingpong" class="stuff"></div>
       <p>reverb</p>
-    <div id="freeverb"></div>
+    <div id="freeverb" class="stuff"></div>
   </main>
 
   <main class="flex-center">
-    <div id="select1" class="flex-center"></div>
-    <div id="select2" class="flex-center"></div>
-    <div id="select3" class="flex-center"></div>
-    <div id="select4" class="flex-center"></div>
-    <div id="select5" class="flex-center"></div>
-    <div id="select6" class="flex-center"></div>
-    <div id="select7" class="flex-center"></div>
-    <div id="select8" class="flex-center"></div>
+    <div id="selectbeat"><p>select beat and input note:</p></div>
+    <div id="selectB"></div>
+
+    <div id="none"></div>
+    <div id="nonetext"><p>Note off</p></div>
+    <div id="play" class="stuff" ></div>
+
+
+  </main>
+<main class="flex-center">
+
+    <div id="keyboard"></div>
+
   </main>
 
 </main>
+<script type="text/javascript" src="hancock.js"></script>
   <script type="text/javascript" src="supersynth.js" ></script>
 </body>
 

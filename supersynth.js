@@ -34,7 +34,18 @@ var filterFreq = new Nexus.Slider('#filterfreq', {
   "step" : 20,
   "value" : 1000,
   })
-
+var filterQ = new Nexus.Slider('#filterq', {
+    "min" : 0,
+    "max" : 30,
+    "step" : 1,
+    "value" : 1,
+    })
+var filterType = new Nexus.Slider('#filtertype', {
+        "min" : 0,
+        "max" : 2,
+        "step" : 1,
+        "value" : 0,
+        })
 
 
 var toggleDist = new Nexus.Toggle('#dist');
@@ -60,6 +71,17 @@ filterFreq.on('change',function(v) {
     filter.frequency.value = filterFreq.value;
     console.log(filter.frequency.value);
   })
+filterQ.on('change',function(v) {
+      filter.Q.value = filterQ.value;
+      console.log(filter.Q.value);
+    })
+filterType.on('change',function(v) {
+          if (filterType.value == 0) {
+            filter.type = "lowpass"}
+          else if (filterType.value == 1) {
+            filter.type = "bandpass"}
+          else {filter.type = "highpass"};
+        });
 
 var tremolo = new Tone.Tremolo({"wet" : 0}).start();
 var pingpong = new Tone.PingPongDelay({
@@ -74,7 +96,7 @@ var synth = new Tone.Synth(
     },
     "envelope" : {
       "attack" : 0.01,
-      "decay" : 0.2,
+      "decay" : 0.1,
       "sustain" : 0.2,
       "release" : 0.2,
     }
@@ -174,10 +196,12 @@ var swing = 0;
 transport.bpm.value = bpm;
 transport.swing.value = swing;
 
-var playButton = new Nexus.Button('#play',{
-    'size': [50,50],
+var playButton = new Nexus.TextButton('#play',{
+    'size': [90,30],
     'mode': 'toggle',
-    'state': false
+    'state': false,
+    'text': 'Play',
+    'alternatetext': 'Pause'
   })
 
 playButton.on('change',function(v) {
@@ -203,93 +227,95 @@ function pattern() {
 var matrix = new Nexus.Matrix(6,8);
 var noteNames = ["A2","A2","A2","A2","A2","A2","A2","A2","A2"];
 
-var select1 = new Nexus.Select('#select1',{
+/*var selectB = new Nexus.Select('#selectB',{
   'size': [70,30],
-  'options': ['A2','B2','D3','E3','G3','A3']
-})
-var select2 = new Nexus.Select('#select2',{
-  'size': [70,30],
-  'options': ['A2','B2','D3','E3','G3','A3']
-})
-var select3 = new Nexus.Select('#select3',{
-  'size': [70,30],
-  'options': ['A2','B2','D3','E3','G3','A3']
-})
-var select4 = new Nexus.Select('#select4',{
-  'size': [70,30],
-  'options': ['A2','B2','D3','E3','G3','A3']
-})
-var select5 = new Nexus.Select('#select5',{
-  'size': [70,30],
-  'options': ['A2','B2','D3','E3','G3','A3']
-})
-var select6 = new Nexus.Select('#select6',{
-  'size': [70,30],
-  'options': ['A2','B2','D3','E3','G3','A3']
-})
-var select7 = new Nexus.Select('#select7',{
-  'size': [70,30],
-  'options': ['A2','B2','D3','E3','G3','A3']
-})
-var select8 = new Nexus.Select('#select8',{
-  'size': [70,30],
-  'options': ['A2','B2','D3','E3','G3','A3']
+  'options': [1,2,3,4,5,6,7,8]
+})*/
+
+var selectB = new Nexus.RadioButton('#selectB',{
+  'size': [240,25],
+  'numberOfButtons': 8,
+  'active': -1
 })
 
-select1.on('change',function(v) {
-  noteNames[0] = select1.value;
-})
-select2.on('change',function(v) {
-  noteNames[1] = select2.value;
-})
-select3.on('change',function(v) {
-  noteNames[2] = select3.value;
-})
-select4.on('change',function(v) {
-  noteNames[3] = select4.value;
-})
-select5.on('change',function(v) {
-  noteNames[4] = select5.value;
-})
-select6.on('change',function(v) {
-  noteNames[5] = select6.value;
-})
-select7.on('change',function(v) {
-  noteNames[6] = select7.value;
-})
-select8.on('change',function(v) {
-  noteNames[7] = select8.value;
-})
 
 var loop1 = new Tone.Loop(function(time){
-	console.log(time);
   synth.triggerAttackRelease(noteNames[0], noteValue)
 }, "2n").start("0:0:1");
 var loop2 = new Tone.Loop(function(time){
-	console.log(time);
   synth.triggerAttackRelease(noteNames[1], noteValue)
 }, "2n").start("0:0:2");
 var loop3 = new Tone.Loop(function(time){
-	console.log(time);
   synth.triggerAttackRelease(noteNames[2], noteValue)
 }, "2n").start("0:0:3");
 var loop4 = new Tone.Loop(function(time){
-	console.log(time);
   synth.triggerAttackRelease(noteNames[3], noteValue)
 }, "2n").start("0:0:4");
 var loop5 = new Tone.Loop(function(time){
-	console.log(time);
   synth.triggerAttackRelease(noteNames[4], noteValue)
 }, "2n").start("0:1:1");
 var loop6 = new Tone.Loop(function(time){
-	console.log(time);
   synth.triggerAttackRelease(noteNames[5], noteValue)
 }, "2n").start("0:1:2");
 var loop7 = new Tone.Loop(function(time){
-	console.log(time);
   synth.triggerAttackRelease(noteNames[6], noteValue)
 }, "2n").start("0:1:3");
 var loop8 = new Tone.Loop(function(time){
-	console.log(time);
   synth.triggerAttackRelease(noteNames[7], noteValue)
 }, "2n").start("0:1:4");
+
+var keyboard = new QwertyHancock({
+                 id: 'keyboard',
+                 width: 650,
+                 height: 90,
+                 octaves: 3,
+                 startNote: 'C2',
+                 whiteNotesColour: 'white',
+                 blackNotesColour: 'black',
+                 hoverColour: '#f06d06',
+                 activeColour: '#f06d06',
+                 borderColour: 'black'
+            });
+
+keyboard.keyDown = function (note, frequency) {
+    console.log(note);
+    if (selectB.active == 0) {
+    noteNames[0] = note;}
+    if (selectB.active == 1) {
+    noteNames[1] = note;}
+    if (selectB.active == 2) {
+    noteNames[2] = note;}
+    if (selectB.active == 3) {
+    noteNames[3] = note;}
+    if (selectB.active == 4) {
+    noteNames[4] = note;}
+    if (selectB.active == 5) {
+    noteNames[5] = note;}
+    if (selectB.active == 6) {
+    noteNames[6] = note;}
+    if (selectB.active == 7) {
+    noteNames[7] = note;}
+};
+var noneButton = new Nexus.Button('#none',{
+    'size': [30,30],
+    'mode': 'button',
+    'state': false
+  })
+noneButton.on('change',function(v) {
+  if (selectB.active == 0) {
+  noteNames[0] = undefined;}
+  if (selectB.active == 1) {
+  noteNames[1] = undefined;}
+  if (selectB.active == 2) {
+  noteNames[2] = undefined;}
+  if (selectB.active == 3) {
+  noteNames[3] = undefined;}
+  if (selectB.active == 4) {
+  noteNames[4] = undefined;}
+  if (selectB.active == 5) {
+  noteNames[5] = undefined;}
+  if (selectB.active == 6) {
+  noteNames[6] = undefined;}
+  if (selectB.active == 7) {
+  noteNames[7] = undefined;}
+});
