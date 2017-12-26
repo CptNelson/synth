@@ -32,11 +32,11 @@ var filterType = new Nexus.Slider('#filtertype', {
 
 filterFreq.on('change',function(v) {
   filter.frequency.value = filterFreq.value;
-  console.log(filter.frequency.value);
+
 })
 filterQ.on('change',function(v) {
   filter.Q.value = filterQ.value;
-  console.log(filter.Q.value);
+
 })
 filterType.on('change',function(v) {
   if (filterType.value == 0) {
@@ -139,19 +139,15 @@ var sustain = dialSustain.value;
 var release = dialRelease.value;
 
 dialAttack.on('change',function(v) {
-  console.log(v);
   synth.envelope.attack = dialAttack.value;
 })
 dialDecay.on('change',function(v) {
-  console.log(v);
   synth.envelope.decay = dialDecay.value;
 })
 dialSustain.on('change',function(v) {
-  console.log(v);
   synth.envelope.sustain = dialSustain.value;
 })
 dialRelease.on('change',function(v) {
-  console.log(v);
   synth.envelope.release = dialRelease.value;
 })
 /*
@@ -195,17 +191,27 @@ window.addEventListener("keydown", function(event) {
 
 //========TRANSPORT===========================
 var transport = Tone.Transport;
-var bpm = 100
-var swing = 0;
-transport.bpm.value = bpm;
-transport.swing.value = swing;
+transport.bpm.value = 80;
+transport.swing.value = 0;
+
+var tempoControl = new Nexus.Number('#tempo',{
+  'size': [40,25],
+  'value': 100,
+  'min': 1,
+  'max': 666,
+  'step': 1
+});
+
+tempoControl.on('change',function(v) {
+    transport.bpm.value = tempoControl.value;
+})
 
 var playButton = new Nexus.TextButton('#play',{
   'size': [90,30],
   'mode': 'toggle',
   'state': false,
   'text': 'Play',
-  'alternatetext': 'Pause'
+  'alternateText': 'Pause'
 })
 
 playButton.on('change',function(v) {
@@ -265,7 +271,7 @@ var keyboard = new QwertyHancock({
 
 //listen for keyboard input
 keyboard.keyDown = function (note, frequency) {
-  console.log(note);
+
   synth.triggerAttack(note);
 
   if (selectB.active == 0) {

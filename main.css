@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
+-/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -122,12 +122,16 @@ font-size: 30px;
 	padding: 1px 0 1px 0;
 	margin: 10px 2px 3px 0;
 }
+#wave {
+	padding: 20px 0 0 65px;
+}
 #wavetext {
-	padding: 0px 0 0px 0;
+	padding: 5px 0 0px 0;
   margin: 0px 0 0px 0;
 }
 #play {
-		margin: 3px 3px 3px 20px;
+		margin: 0px 3px 0px -60px;
+		padding: 0 0 0px 0;
 }
 #none {
 	margin: 12px 3px 3px 20px;
@@ -137,4 +141,11 @@ font-size: 30px;
 }
 #selectbeat {
 	margin: 10px 2px 3px 0px;
+}
+.transport {
+	margin: 10px 0px 0px 100px;
+	padding: 0px 0px 0px 0px;
+}
+#tempo {
+	margin-left: 0px;
 }
