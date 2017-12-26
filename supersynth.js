@@ -209,31 +209,31 @@ var select1 = new Nexus.Select('#select1',{
 })
 var select2 = new Nexus.Select('#select2',{
   'size': [70,30],
-  'options': ['A2','B3','D3','E3','G3','A3']
+  'options': ['A2','B2','D3','E3','G3','A3']
 })
 var select3 = new Nexus.Select('#select3',{
   'size': [70,30],
-  'options': ['A2','B3','D3','E3','G3','A3']
+  'options': ['A2','B2','D3','E3','G3','A3']
 })
 var select4 = new Nexus.Select('#select4',{
   'size': [70,30],
-  'options': ['A2','B3','D3','E3','G3','A3']
+  'options': ['A2','B2','D3','E3','G3','A3']
 })
 var select5 = new Nexus.Select('#select5',{
   'size': [70,30],
-  'options': ['A2','B3','D3','E3','G3','A3']
+  'options': ['A2','B2','D3','E3','G3','A3']
 })
 var select6 = new Nexus.Select('#select6',{
   'size': [70,30],
-  'options': ['A2','B3','D3','E3','G3','A3']
+  'options': ['A2','B2','D3','E3','G3','A3']
 })
 var select7 = new Nexus.Select('#select7',{
   'size': [70,30],
-  'options': ['A2','B3','D3','E3','G3','A3']
+  'options': ['A2','B2','D3','E3','G3','A3']
 })
 var select8 = new Nexus.Select('#select8',{
   'size': [70,30],
-  'options': ['A2','B3','D3','E3','G3','A3']
+  'options': ['A2','B2','D3','E3','G3','A3']
 })
 
 select1.on('change',function(v) {
