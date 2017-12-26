@@ -66,8 +66,8 @@ h1 {
 main {
 
   background: white;
-  margin: 10px 15% 1px 15%;
-  padding: 1px 10px 0px 10px;
+  margin: 10px 15% 10px 15%;
+  padding: 1px 10px 4px 10px;
   border-radius: 10px;
 }
 .frames {
@@ -91,11 +91,17 @@ main div {
   display: flex;
   justify-content: center;
 }
-
+#sequencer {
+  align-content: center;
+}
 p {
   padding: 5px 0 5px 0;
   margin: 5px 0 5px 0;
   color: #f06d06;
   font-weight: 600;
+}
+#play {
+  width: 74px;
+height: 74px;
 }
 /* the keys */==============================

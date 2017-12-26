@@ -81,7 +81,7 @@ var synth = new Tone.Synth(
   });
 synth.chain(filter, dist, tremolo, pingpong, freeverb, Tone.Master)
 
-var noteValue = "8n";
+var noteValue = "16n";
 
 waveform.on('change',function(v) {
   if (waveform.value == 0){
@@ -166,3 +166,80 @@ window.addEventListener("keydown", function(event) {
       synth.triggerAttackRelease("A4", noteValue)
     }
   })
+
+//========TRANSPORT===========================
+var transport = Tone.Transport;
+var bpm = 100
+var swing = 0;
+transport.bpm.value = bpm;
+transport.swing.value = swing;
+
+var playButton = new Nexus.Button('#play',{
+    'size': [50,50],
+    'mode': 'toggle',
+    'state': false
+  })
+
+playButton.on('change',function(v) {
+    if (this.state == true) {
+
+      transport.start();
+      console.log( matrix.pattern[0][0]);
+    }
+    else {
+      transport.stop();
+    }
+  })
+function pattern() {
+  matrix.toggle.cell(0,0);
+  matrix.toggle.cell(1,1);
+  matrix.toggle.cell(2,2);
+  matrix.toggle.cell(3,3);
+  matrix.toggle.cell(4,4);
+  matrix.toggle.cell(5,5);
+};
+
+//==================Sequencer====================
+var matrix = new Nexus.Matrix(6,8);
+var noteNames = ["A4","A4","A4","A4","A4","A4","A4","A4","A4"];
+/*var n1;
+var n2;
+var n3;
+var n4;
+var n5;
+var n6;
+var n7;
+var n8;
+*/
+var loop1 = new Tone.Loop(function(time){
+	console.log(time);
+  synth.triggerAttackRelease("A2", noteValue)
+}, "1n").start("0:0:1");
+var loop2 = new Tone.Loop(function(time){
+	console.log(time);
+  synth.triggerAttackRelease("B2", noteValue)
+}, "1n").start("0:0:2");
+var loop3 = new Tone.Loop(function(time){
+	console.log(time);
+  synth.triggerAttackRelease("D2", noteValue)
+}, "1n").start("0:0:3");
+var loop4 = new Tone.Loop(function(time){
+	console.log(time);
+  synth.triggerAttackRelease("E2", noteValue)
+}, "1n").start("0:0:4");
+var loop5 = new Tone.Loop(function(time){
+	console.log(time);
+  synth.triggerAttackRelease("A2", noteValue)
+}, "1n").start("0:1:1");
+var loop6 = new Tone.Loop(function(time){
+	console.log(time);
+  synth.triggerAttackRelease("B2", noteValue)
+}, "1n").start("0:1:2");
+var loop7 = new Tone.Loop(function(time){
+	console.log(time);
+  synth.triggerAttackRelease("D2", noteValue)
+}, "1n").start("0:1:3");
+var loop8 = new Tone.Loop(function(time){
+	console.log(time);
+  synth.triggerAttackRelease("E2", noteValue)
+}, "1n").start("0:1:4");
